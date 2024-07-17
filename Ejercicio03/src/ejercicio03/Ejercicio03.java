@@ -1,5 +1,7 @@
 package ejercicio03;
 
+import java.util.Scanner;
+
 // Inicia el nodo
 class Nodo {
     String valor;
@@ -43,20 +45,32 @@ class Pila {
     }
 }
 
-
-public static void main(String[] args) {
-    Pila pila = new Pila();
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Ingresar los valores (separar por ','). Presionar enter para finalizar el programa:");
-    while (true) {
-        String valor = scanner.nextLine();
-        if (valor.isEmpty()) {
-            break;
+public class Ejercicio03 {
+    public static void ImprInvert(Pila pila) {
+        if (!pila.seono()) {
+            String valor = pila.pop();
+            ImprInvert(pila);
+            System.out.print(valor + " ");
         }
-        pila.push(valor);
     }
 
-    System.out.println("Los valores Invertidos, son:");
-    ImprInvert(pila);
+    public static void main(String[] args) {
+        Pila pila = new Pila();
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.println(" ");
+        
+        System.out.println("Ingresar los valores (separar por ','). Presionar enter para finalizar el programa:");
+        while (true) {
+            String valor = scanner.nextLine();
+            if (valor.isEmpty()) {
+                break;
+            }
+            pila.push(valor);
+        }
+
+        System.out.println("Los valores Invertidos, son:");
+        ImprInvert(pila);
+    }
 }
