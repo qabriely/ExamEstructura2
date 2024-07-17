@@ -1,3 +1,41 @@
+package ejercicio02;
+
+// Nodo de la lista circular
+class Nodo {
+    String palabra;
+    Nodo siguiente;
+
+    Nodo(String palabra) {
+        this.palabra = palabra;
+        this.siguiente = null;
+    }
+}
+// Lista Circular
+class ListaCircular {
+    Nodo cabeza;
+
+    ListaCircular() {
+        cabeza = null;
+    }
+
+    // Método para agregar palabras a la lista
+    void agregar(String palabra) {
+        Nodo nuevoNodo = new Nodo(palabra);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+            nuevoNodo.siguiente = cabeza; 
+        } else {
+            Nodo temp = cabeza;
+            while (temp.siguiente != cabeza) {
+                temp = temp.siguiente;
+            }
+            temp.siguiente = nuevoNodo;
+            nuevoNodo.siguiente = cabeza;
+        }
+    }
+
+
+
 // Clase principal
 public class Ejercicio02 {
     public static void main(String[] args) {
