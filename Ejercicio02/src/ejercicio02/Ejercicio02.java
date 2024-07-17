@@ -1,5 +1,7 @@
 package ejercicio02;
 
+import java.util.Scanner;
+
 // Nodo de la lista circular
 class Nodo {
     String palabra;
@@ -10,6 +12,7 @@ class Nodo {
         this.siguiente = null;
     }
 }
+
 // Lista Circular
 class ListaCircular {
     Nodo cabeza;
@@ -34,7 +37,40 @@ class ListaCircular {
         }
     }
 
+    // Calcula la cantidad de palabras en la lista
+    int contarPalabras() {
+        if (cabeza == null) {
+            return 0;
+        }
 
+        int contador = 0;
+        Nodo temp = cabeza;
+
+        do {
+            contador++;
+            temp = temp.siguiente;
+        } while (temp != cabeza);
+
+        return contador;
+    }
+
+    // Concatena las palabras con espacios
+    String concatenarConEspacios() {
+        if (cabeza == null) {
+            return "";
+        }
+
+        StringBuilder resultado = new StringBuilder();
+        Nodo temp = cabeza;
+
+        do {
+            resultado.append(temp.palabra).append(" ");
+            temp = temp.siguiente;
+        } while (temp != cabeza);
+
+        return resultado.toString().trim(); 
+    }
+}
 
 // Clase principal
 public class Ejercicio02 {
