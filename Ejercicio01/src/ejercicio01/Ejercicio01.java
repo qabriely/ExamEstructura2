@@ -40,7 +40,34 @@ public class Ejercicio01 {
             }
         } while (opcion != 3);
     }
+private static void añadirNota(String nota) {
+        if (contador < notas.length) {
+            notas[contador] = nota;
+            contador++;
+            System.out.println("Nota añadida correctamente.");
+        } else {
+            System.out.println("No se pueden añadir más notas.");
+        }
+    }
+    private static void mostrarNotas(int indice) {
+        if (indice < contador) {
+            System.out.println((indice + 1) + ". " + notas[indice]);
+            mostrarNotas(indice + 1);
+        } else if (indice == 0) {
+            System.out.println("No hay notas para mostrar.");
+        }
+    }
 
+    private static void limpiarPantalla() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
+    private static void pausa() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPresiona Enter para continuar...");
+        scanner.nextLine();
+    }
 
   private static void mostrarMenu() {
         System.out.println("Menú de opciones:");
